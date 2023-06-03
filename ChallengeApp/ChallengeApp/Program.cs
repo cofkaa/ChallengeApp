@@ -1,20 +1,37 @@
-﻿int number = 1998;
-char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-int[] noOfDigits = new int[digits.Length];
+﻿using ChallengeApp;
 
-char[] cNumber = number.ToString().ToArray();
-foreach (var item in cNumber)
+List<Employee> employees = new List<Employee>();
+employees.Add(new Employee("Adam", "Kowalski", 35));
+employees.Add(new Employee("Kasia", "Nowak", 22));
+employees.Add(new Employee("Jola", "Woźniak", 50));
+
+int maxPoints = 0;
+int newPoints;
+Random random = new();
+foreach (var employee in employees)
 {
-    for (int i = 0; i < digits.Length; i++)
+    for (int i = 0; i < 5; i++)
     {
-        if (item == digits[i])
-        {
-            noOfDigits[i]++;
-            break;
-        }
+        newPoints = random.Next(1, 11);
+        Console.WriteLine(newPoints);
+        employee.AddPoints(newPoints);
+    }
+    Console.WriteLine(employee.Name + " " + employee.Surname + " (" + employee.Age + ") " + employee.Points);
+    if (maxPoints < employee.Points)
+    {
+        maxPoints = employee.Points;
     }
 }
-for (int i = 0; i < digits.Length; i++)
+
+Console.WriteLine("********************");
+Console.WriteLine("  The winner is:    ");
+Console.WriteLine("********************");
+
+foreach (var employee in employees)
 {
-    Console.WriteLine(digits[i] + " ==> " + noOfDigits[i]);
+    if (employee.Points == maxPoints)
+    {
+        Console.WriteLine(employee.Name + " " + employee.Surname + " (" + employee.Age + ") " + employee.Points);
+    }
 }
+
