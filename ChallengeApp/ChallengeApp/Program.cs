@@ -1,24 +1,20 @@
-﻿string sName = "Aga";
-char cGender = 'K';
-int iAge = 20;
+﻿int number = 1998;
+char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+int[] noOfDigits = new int[digits.Length];
 
-string sText1 = "Kobieta poniżej 30 lat";
-string sText2 = "Ewa, lat 33";
-string sText3 = "Niepełnoletni mężczyzna";
-
-if (cGender == 'K')
+char[] cNumber = number.ToString().ToArray();
+foreach (var item in cNumber)
 {
-    if (iAge < 30)
+    for (int i = 0; i < digits.Length; i++)
     {
-        Console.WriteLine(sText1);
-    }
-    else if (sName == "Ewa" && iAge == 33)
-    {
-        Console.WriteLine(sText2);
+        if (item == digits[i])
+        {
+            noOfDigits[i]++;
+            break;
+        }
     }
 }
-else if (iAge < 18)
+for (int i = 0; i < digits.Length; i++)
 {
-    Console.WriteLine(sText3);
+    Console.WriteLine(digits[i] + " ==> " + noOfDigits[i]);
 }
-
