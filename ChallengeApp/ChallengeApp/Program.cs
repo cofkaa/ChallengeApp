@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-string sName = "Aga";
+﻿string sName = "Aga";
 char cGender = 'K';
 int iAge = 20;
 
