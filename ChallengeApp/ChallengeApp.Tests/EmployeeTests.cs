@@ -4,7 +4,7 @@ namespace ChallengeApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenEmployeeColectPoinst_ShouldReturnCorrectResult()
+        public void WhenEmployeeColectPoints_ShouldReturnCorrectResult()
         {
             // arrange
             var employee = new Employee("Adam", "Nowak", 33);
