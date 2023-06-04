@@ -5,33 +5,20 @@ employees.Add(new Employee("Adam", "Kowalski", 35));
 employees.Add(new Employee("Kasia", "Nowak", 22));
 employees.Add(new Employee("Jola", "Woźniak", 50));
 
-int maxPoints = 0;
-int newPoints;
+int newGrade;
 Random random = new();
 foreach (var employee in employees)
 {
-    for (int i = 0; i < 5; i++)
+    Console.WriteLine($"{employee.Name} {employee.Surname} ({employee.Age})");
+    for (int i = 0; i < random.Next(0, 10); i++)
     {
-        newPoints = random.Next(1, 11);
-        Console.WriteLine(newPoints);
-        employee.AddPoints(newPoints);
+        newGrade = random.Next(1, 101);
+        Console.WriteLine(newGrade);
+        employee.AddGrade(newGrade);
     }
-    Console.WriteLine(employee.Name + " " + employee.Surname + " (" + employee.Age + ") " + employee.Points);
-    if (maxPoints < employee.Points)
-    {
-        maxPoints = employee.Points;
-    }
+    var statistics = employee.GetStatistics();
+    Console.WriteLine($"Average: {statistics.Average:N2}");
+    Console.WriteLine($"Min: {statistics.Min}");
+    Console.WriteLine($"Max: {statistics.Max}");
+    Console.WriteLine("****************************");
 }
-
-Console.WriteLine("********************");
-Console.WriteLine("  The winner is:    ");
-Console.WriteLine("********************");
-
-foreach (var employee in employees)
-{
-    if (employee.Points == maxPoints)
-    {
-        Console.WriteLine(employee.Name + " " + employee.Surname + " (" + employee.Age + ") " + employee.Points);
-    }
-}
-
