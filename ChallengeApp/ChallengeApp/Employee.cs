@@ -18,5 +18,10 @@
         {
             this.Points += points;
         }
+
+        public void SubtractPoints(int points)
+        {
+            this.Points -= points;
+        }
     }
 }
