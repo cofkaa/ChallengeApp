@@ -10,6 +10,11 @@ namespace ChallengeApp
 
         private List<float> grades = new List<float>();
 
+        public Employee()
+        {
+
+        }
+
         public Employee(string name, string surname, int age)
         {
             this.Name = name;
@@ -48,7 +53,7 @@ namespace ChallengeApp
                 case 'e':
                     this.grades.Add(20);
                     break;
-                default: 
+                default:
                     Console.WriteLine("** wrong letter");
                     break;
             }

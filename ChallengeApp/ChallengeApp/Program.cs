@@ -4,32 +4,30 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        List<Employee> employees = new List<Employee>();
-        employees.Add(new Employee("Adam", "Kowalski", 35));
-        employees.Add(new Employee("Kasia", "Nowak", 22));
-        employees.Add(new Employee("Jola", "Woźniak", 50));
+        Console.WriteLine("Witamy w Programie ABC do oceny pracowaników");
+        Console.WriteLine("============================================");
+        Console.WriteLine();
 
-        int newGrade;
-        Random random = new();
-        foreach (var employee in employees)
+        var employee = new Employee();
+
+        var input = "";
+        var input2 = "";
+        do
         {
-            Console.WriteLine($"{employee.Name} {employee.Surname} ({employee.Age})");
-            for (int i = 0; i < random.Next(0, 10); i++)
-            {
-                newGrade = random.Next(0, 101);
-                Console.WriteLine(newGrade);
-                employee.AddGrade(newGrade);
-            }
+            Console.WriteLine("Podaj ocenę pracwnika:");
+            input = Console.ReadLine();
+            employee.AddGrade(input);
+            Console.WriteLine($"Wprowadzono ocenę: {input}. Czy chcesz podać kolejną ocenę (T/N)?");
+            input2 = Console.ReadLine();
+        } while (input2 == "T" || input2 == "t");
 
-            var statistics = employee.GetStatistics();
-            Console.WriteLine("****************************");
-            Console.WriteLine("--GetStatistics()   ");
-            Console.WriteLine($"Average: {statistics.Average:N2}");
-            Console.WriteLine($"AverageLetter: {statistics.AverageLetter}");
-            Console.WriteLine($"Min: {statistics.Min}");
-            Console.WriteLine($"Max: {statistics.Max}");
-            Console.WriteLine("****************************");
-            break;
-        }
+        var statistics = employee.GetStatistics();
+        Console.WriteLine("****************************");
+        Console.WriteLine($"{employee.Name} {employee.Surname} ({employee.Age})");
+        Console.WriteLine($"Average: {statistics.Average:N2}");
+        Console.WriteLine($"AverageLetter: {statistics.AverageLetter}");
+        Console.WriteLine($"Min: {statistics.Min}");
+        Console.WriteLine($"Max: {statistics.Max}");
+        Console.WriteLine("****************************");
     }
 }
