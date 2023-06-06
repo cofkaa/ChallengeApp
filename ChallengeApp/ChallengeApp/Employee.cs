@@ -26,7 +26,7 @@ namespace ChallengeApp
             if (float.TryParse(grade, out float result))
                 AddGrade(result);
             else
-                Console.WriteLine("** string is not float");
+                throw new Exception("String is not float");
         }
 
         public void AddGrade(char grade)
@@ -54,8 +54,7 @@ namespace ChallengeApp
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("** wrong letter");
-                    break;
+                    throw new Exception("Wrong letter");
             }
         }
         public void AddGrade(decimal grade)
@@ -78,7 +77,7 @@ namespace ChallengeApp
             if (grade >= 0 && grade <= 100)
                 this.grades.Add(grade);
             else
-                Console.WriteLine("** invalid grade value");
+                throw new Exception("Invalid grade value");
         }
 
         public Statistics GetStatistics()

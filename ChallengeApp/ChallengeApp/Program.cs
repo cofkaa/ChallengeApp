@@ -4,7 +4,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Witamy w Programie ABC do oceny pracowaników");
+        Console.WriteLine("Witamy w Programie ABC do oceny pracowników");
         Console.WriteLine("============================================");
         Console.WriteLine();
 
@@ -14,9 +14,17 @@ internal class Program
         var input2 = "";
         do
         {
-            Console.WriteLine("Podaj ocenę pracwnika:");
+            Console.WriteLine("Podaj ocenę pracownika:");
             input = Console.ReadLine();
-            employee.AddGrade(input);
+            try
+            {
+                employee.AddGrade(input);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"**Błąd: {e.Message}");
+            }
+
             Console.WriteLine($"Wprowadzono ocenę: {input}. Czy chcesz podać kolejną ocenę (T/N)?");
             input2 = Console.ReadLine();
         } while (input2 == "T" || input2 == "t");
