@@ -18,7 +18,6 @@ namespace ChallengeApp
         }
         public void AddGrade(string grade)
         {
-            Console.WriteLine("grade string:" + grade);
             if (float.TryParse(grade, out float result))
                 AddGrade(result);
             else
@@ -26,25 +25,21 @@ namespace ChallengeApp
         }
         public void AddGrade(decimal grade)
         {
-            Console.WriteLine("grade decimal:" + grade);
             AddGrade((float)grade);
         }
 
         public void AddGrade(double grade)
         {
-            Console.WriteLine("grade double:" + grade);
             AddGrade((float)grade);
         }
 
         public void AddGrade(long grade)
         {
-            Console.WriteLine("grade long:" + grade);
             AddGrade((float)grade);
         }
 
         public void AddGrade(float grade)
         {
-            Console.WriteLine("grade float:" + grade);
             if (grade >= 0 && grade <= 100)
                 this.grades.Add(grade);
             else
@@ -70,6 +65,96 @@ namespace ChallengeApp
                 }
                 statistics.Average /= this.grades.Count;
             }
+
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithForEach()
+        {
+            var statistics = new Statistics();
+
+            statistics.Average = 0;
+
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            foreach (var grade in this.grades)
+            {
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
+            }
+
+            if (this.grades.Count > 0)
+                statistics.Average /= this.grades.Count;
+
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithFor()
+        {
+            var statistics = new Statistics();
+
+            statistics.Average = 0;
+
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            for (int i = 0; i < this.grades.Count; i++)
+            {
+                statistics.Min = Math.Min(statistics.Min, grades[i]);
+                statistics.Max = Math.Max(statistics.Max, grades[i]);
+                statistics.Average += grades[i];
+            }
+            if (this.grades.Count > 0)
+                statistics.Average /= this.grades.Count;
+
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            var statistics = new Statistics();
+
+            statistics.Average = 0;
+
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            if (this.grades.Count > 0)
+            {
+                var i = 0;
+                do
+                {
+                    statistics.Min = Math.Min(statistics.Min, grades[i]);
+                    statistics.Max = Math.Max(statistics.Max, grades[i]);
+                    statistics.Average += grades[i];
+                    i++;
+                } while (i < this.grades.Count);
+
+                statistics.Average /= this.grades.Count;
+            }
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithWhile()
+        {
+            var statistics = new Statistics();
+
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            var i = 0;
+            while (i < this.grades.Count)
+            {
+                statistics.Min = Math.Min(statistics.Min, grades[i]);
+                statistics.Max = Math.Max(statistics.Max, grades[i]);
+                statistics.Average += grades[i];
+                i++;
+            }
+            if (this.grades.Count > 0)
+                statistics.Average /= this.grades.Count;
 
             return statistics;
         }
