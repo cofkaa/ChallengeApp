@@ -10,7 +10,7 @@ namespace ChallengeApp.Tests
             var employee = new Employee("Adam", "Nowak", 33);
             employee.AddGrade(3);
             employee.AddGrade(6);
-            
+
             // act
             var statistics = employee.GetStatistics();
 
@@ -38,7 +38,7 @@ namespace ChallengeApp.Tests
         {
             // arrange
             var employee = new Employee("Adam", "Nowak", 33);
-            
+
             // act
             var statistics = employee.GetStatistics();
 
@@ -46,5 +46,34 @@ namespace ChallengeApp.Tests
             Assert.AreEqual(0, statistics.Average);
         }
 
+        [Test]
+        public void WhenEmployeeCollectCharGrades_ShouldReturnAverage()
+        {
+            // arrange
+            var employee = new Employee("Adam", "Nowak", 33);
+            employee.AddGrade('A');
+            employee.AddGrade('c');
+
+            // act
+            var statistics = employee.GetStatistics();
+
+            // assert
+            Assert.AreEqual(80, statistics.Average);
+        }
+
+        [Test]
+        public void WhenEmployeeCollectGrades_ShouldReturnAverageLetter()
+        {
+            // arrange
+            var employee = new Employee("Adam", "Nowak", 33);
+            employee.AddGrade(100);
+            employee.AddGrade('c');
+
+            // act
+            var statistics = employee.GetStatistics();
+
+            // assert
+            Assert.AreEqual('B', statistics.AverageLetter);
+        }
     }
 }
