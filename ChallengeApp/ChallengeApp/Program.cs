@@ -8,7 +8,7 @@ internal class Program
         Console.WriteLine("============================================");
         Console.WriteLine();
 
-        var employee = new Employee();
+        var employee = new Employee("Aga", "Nowak");
 
         var input = "";
         var input2 = "";
