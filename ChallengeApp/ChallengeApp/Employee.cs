@@ -1,23 +1,17 @@
-﻿using System.Runtime.InteropServices;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
-        public string Name { get; private set; }
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
         private List<float> grades = new List<float>();
 
-        public Employee()
+        public Employee() : this("no name") { }
+        public Employee(string name) : this(name, "no surname") { }
+        public Employee(string name, string surname) : this(name, surname, 0) { }
+        public Employee(string name, string surname, int age) : base(name)
         {
-
-        }
-
-        public Employee(string name, string surname, int age)
-        {
-            this.Name = name;
             this.Surname = surname;
             this.Age = age;
         }
@@ -117,7 +111,6 @@ namespace ChallengeApp
                     statistics.AverageLetter = 'E';
                     break;
             }
-
             return statistics;
         }
     }
