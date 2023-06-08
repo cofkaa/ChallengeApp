@@ -42,5 +42,11 @@ namespace ChallengeApp.InheritingClasses
             }
             return base.GetStatistics();
         }
+
+        public static void DeleteFileIfExists()
+        {
+            if (File.Exists(fileName))
+                File.Delete(fileName);
+        }
     }
 }
