@@ -3,41 +3,14 @@ using ChallengeApp.Interfaces;
 
 namespace ChallengeApp
 {
-    public class Supervisor : IEmployee
+    public class Supervisor : EmployeeInMemory
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Age { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public char Gender { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        private List<float> grades = new();
-
-        public void AddGrade(char grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddGrade(decimal grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddGrade(double grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddGrade(long grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddGrade(float grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddGrade(string grade)
+        public Supervisor() : base() { }
+        public Supervisor(string name, string surname) : base(name, surname) { }
+        public Supervisor(string name, string surname, char gender) : base(name, surname, gender) { }
+        public Supervisor(string name, string surname, int age) : base(name, surname, age) { }
+        public Supervisor(string name, string surname, int age, char gender) : base(name, surname, age, gender) { }
+        public new void AddGrade(string grade)
         {
             bool isPlus = grade.Contains('+');
             bool isMinus = grade.Contains('-');
@@ -75,13 +48,6 @@ namespace ChallengeApp
             else if (isMinus)
                 pointsForGrade -= 5;
             grades.Add(Math.Max(0, pointsForGrade));
-        }
-
-        public Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-            statistics.CalcStatisticsForGradesList(grades);
-            return statistics;
         }
     }
 }
