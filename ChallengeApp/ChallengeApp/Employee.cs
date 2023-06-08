@@ -2,19 +2,13 @@
 {
     public class Employee : Person
     {
-        public string Surname { get; private set; }
-        public int Age { get; private set; }
-
         private List<float> grades = new List<float>();
 
-        public Employee() : this("no name") { }
-        public Employee(string name) : this(name, "no surname") { }
-        public Employee(string name, string surname) : this(name, surname, 0) { }
-        public Employee(string name, string surname, int age) : base(name)
-        {
-            this.Surname = surname;
-            this.Age = age;
-        }
+        public Employee() : base("no-name", "no-surname") { }
+        public Employee(string name, string surname) : base(name, surname) { }
+        public Employee(string name, string surname, int age) : base(name, surname, age) { }
+        public Employee(string name, string surname, char gender) : base(name, surname, gender) { }
+
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
