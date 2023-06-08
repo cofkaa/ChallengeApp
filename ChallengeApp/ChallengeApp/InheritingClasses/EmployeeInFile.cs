@@ -22,6 +22,12 @@ namespace ChallengeApp.InheritingClasses
         }
         public override Statistics GetStatistics()
         {
+            ReadGradesFromFile();
+            return base.GetStatistics();
+        }
+
+        private void ReadGradesFromFile()
+        {
             grades = new();
             if (File.Exists(fileName))
             {
@@ -40,7 +46,6 @@ namespace ChallengeApp.InheritingClasses
                     }
                 }
             }
-            return base.GetStatistics();
         }
 
         public static void DeleteFileIfExists()
