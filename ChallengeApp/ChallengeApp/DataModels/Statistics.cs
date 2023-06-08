@@ -1,4 +1,4 @@
-﻿namespace ChallengeApp
+﻿namespace ChallengeApp.DataModels
 {
     public class Statistics
     {

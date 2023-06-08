@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using ChallengeApp.DataModels;
+
+namespace ChallengeApp.Interfaces
 {
     public interface IEmployee
     {

@@ -1,4 +1,7 @@
-﻿namespace ChallengeApp
+﻿using ChallengeApp.DataModels;
+using ChallengeApp.Interfaces;
+
+namespace ChallengeApp
 {
     internal class Supervisor : IEmployee
     {

@@ -1,4 +1,4 @@
-﻿namespace ChallengeApp
+﻿namespace ChallengeApp.BaseClases
 {
     public abstract class Person
     {
@@ -12,10 +12,10 @@
         public Person(string name, string surname, int age) : this(name, surname, age, '?') { }
         public Person(string name, string surname, int age, char gender)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Age = age;
-            this.Gender = gender;
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Gender = gender;
         }
     }
 }
