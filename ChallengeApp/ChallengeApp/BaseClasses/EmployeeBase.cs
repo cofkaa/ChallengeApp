@@ -27,12 +27,39 @@ namespace ChallengeApp.BaseClasses
         {
             Console.WriteLine($"Hello! I'm {Name} {Surname}");
         }
-        public abstract void AddGrade(char grade);
-        public abstract void AddGrade(string grade);
+        public void AddGrade(char grade)
+        {
+            var pointsForGrade = grade switch
+            {
+                'A' or 'a' => 100,
+                'B' or 'b' => 80,
+                'C' or 'c' => 60,
+                'D' or 'd' => 40,
+                'E' or 'e' => 20,
+                _ => throw new Exception("Wrong letter"),
+            };
+            AddGrade(pointsForGrade);
+        }
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+                AddGrade(result);
+            else
+                throw new Exception("String is not float");
+        }
 
-        public abstract void AddGrade(decimal grade);
-        public abstract void AddGrade(double grade);
-        public abstract void AddGrade(long grade);
+        public void AddGrade(decimal grade)
+        {
+            AddGrade((float)grade);
+        }
+        public void AddGrade(double grade)
+        {
+            AddGrade((float)grade);
+        }
+        public void AddGrade(long grade)
+        {
+            AddGrade((float)grade);
+        }
         public abstract void AddGrade(float grade);
         public Statistics GetStatistics()
         {

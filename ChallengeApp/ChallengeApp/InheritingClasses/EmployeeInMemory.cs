@@ -15,57 +15,6 @@ namespace ChallengeApp.InheritingClasses
             Console.WriteLine("HI!!!");
             base.SayHello();
         }
-        public override void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A':
-                case 'a':
-                    grades.Add(100);
-                    break;
-                case 'B':
-                case 'b':
-                    grades.Add(80);
-                    break;
-                case 'C':
-                case 'c':
-                    grades.Add(60);
-                    break;
-                case 'D':
-                case 'd':
-                    grades.Add(40);
-                    break;
-                case 'E':
-                case 'e':
-                    grades.Add(20);
-                    break;
-                default:
-                    throw new Exception("Wrong letter");
-            }
-        }
-        public override void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float result))
-                AddGrade(result);
-            else
-                throw new Exception("String is not float");
-        }
-
-        public override void AddGrade(decimal grade)
-        {
-            AddGrade((float)grade);
-        }
-
-        public override void AddGrade(double grade)
-        {
-            AddGrade((float)grade);
-        }
-
-        public override void AddGrade(long grade)
-        {
-            AddGrade((float)grade);
-        }
-
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
