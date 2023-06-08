@@ -23,6 +23,10 @@ namespace ChallengeApp.BaseClasses
             this.Age = age;
             this.Gender = gender;
         }
+        public virtual void SayHello()
+        {
+            Console.WriteLine($"Hello! I'm {Name} {Surname}");
+        }
         public abstract void AddGrade(char grade);
         public abstract void AddGrade(string grade);
 

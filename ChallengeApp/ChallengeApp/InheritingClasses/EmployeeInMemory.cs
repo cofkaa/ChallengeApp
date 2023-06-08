@@ -10,6 +10,11 @@ namespace ChallengeApp.InheritingClasses
         public EmployeeInMemory(string name, string surname, int age) : base(name, surname, age) { }
         public EmployeeInMemory(string name, string surname, int age, char gender) : base(name, surname, age, gender) { }
 
+        public override void SayHello()
+        {
+            Console.WriteLine("HI!!!");
+            base.SayHello();
+        }
         public override void AddGrade(char grade)
         {
             switch (grade)
