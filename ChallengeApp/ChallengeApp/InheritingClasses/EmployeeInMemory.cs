@@ -17,10 +17,8 @@ namespace ChallengeApp.InheritingClasses
         }
         public override void AddGrade(float grade)
         {
-            if (grade >= 0 && grade <= 100)
-                grades.Add(grade);
-            else
-                throw new Exception("Invalid grade value");
+            base.AddGrade(grade);
+            grades.Add(grade);
         }
     }
 }

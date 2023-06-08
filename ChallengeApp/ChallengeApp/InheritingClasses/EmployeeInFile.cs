@@ -1,4 +1,5 @@
 ﻿using ChallengeApp.BaseClasses;
+using ChallengeApp.DataModels;
 
 namespace ChallengeApp.InheritingClasses
 {
@@ -13,12 +14,33 @@ namespace ChallengeApp.InheritingClasses
 
         public override void AddGrade(float grade)
         {
-            if (grade < 0 || grade > 100)
-                throw new Exception("Invalid grade value");
+            base.AddGrade(grade);
             using (var writer = File.AppendText(fileName))
             {
                 writer.WriteLine(grade);
             }
+        }
+        public override Statistics GetStatistics()
+        {
+            grades = new();
+            if (File.Exists(fileName))
+            {
+                using (var reader = File.OpenText(fileName))
+                {
+                    var line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        try
+                        {
+                            var number = float.Parse(line);
+                            grades.Add(number);
+                        }
+                        catch (Exception) { }
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            return base.GetStatistics();
         }
     }
 }

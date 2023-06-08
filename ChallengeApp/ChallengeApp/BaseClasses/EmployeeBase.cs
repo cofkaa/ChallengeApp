@@ -60,8 +60,12 @@ namespace ChallengeApp.BaseClasses
         {
             AddGrade((float)grade);
         }
-        public abstract void AddGrade(float grade);
-        public Statistics GetStatistics()
+        public virtual void AddGrade(float grade)
+        {
+            if (grade < 0 || grade > 100)
+                throw new Exception("Invalid grade value");
+        }
+        public virtual Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
