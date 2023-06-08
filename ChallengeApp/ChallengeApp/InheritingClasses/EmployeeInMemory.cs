@@ -1,6 +1,6 @@
 ﻿using ChallengeApp.BaseClasses;
 
-namespace ChallengeApp
+namespace ChallengeApp.InheritingClasses
 {
     public class EmployeeInMemory : EmployeeBase
     {
@@ -16,23 +16,23 @@ namespace ChallengeApp
             {
                 case 'A':
                 case 'a':
-                    this.grades.Add(100);
+                    grades.Add(100);
                     break;
                 case 'B':
                 case 'b':
-                    this.grades.Add(80);
+                    grades.Add(80);
                     break;
                 case 'C':
                 case 'c':
-                    this.grades.Add(60);
+                    grades.Add(60);
                     break;
                 case 'D':
                 case 'd':
-                    this.grades.Add(40);
+                    grades.Add(40);
                     break;
                 case 'E':
                 case 'e':
-                    this.grades.Add(20);
+                    grades.Add(20);
                     break;
                 default:
                     throw new Exception("Wrong letter");
@@ -64,7 +64,7 @@ namespace ChallengeApp
         public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
-                this.grades.Add(grade);
+                grades.Add(grade);
             else
                 throw new Exception("Invalid grade value");
         }

@@ -1,7 +1,6 @@
 ﻿using ChallengeApp.BaseClasses;
-using System.Xml.Linq;
 
-namespace ChallengeApp
+namespace ChallengeApp.InheritingClasses
 {
     public class EmployeeInFile : EmployeeBase
     {

@@ -1,4 +1,4 @@
-﻿using ChallengeApp;
+﻿using ChallengeApp.InheritingClasses;
 
 internal class Program
 {

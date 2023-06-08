@@ -1,3 +1,5 @@
+using ChallengeApp.InheritingClasses;
+
 namespace ChallengeApp.Tests
 
 {

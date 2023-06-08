@@ -1,7 +1,4 @@
-﻿using ChallengeApp.DataModels;
-using ChallengeApp.Interfaces;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp.InheritingClasses
 {
     public class Employee : EmployeeInMemory
     {

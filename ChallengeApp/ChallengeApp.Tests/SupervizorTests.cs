@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp.Tests
+﻿using ChallengeApp.InheritingClasses;
+
+namespace ChallengeApp.Tests
 {
     public class SupervizorTests
     {
