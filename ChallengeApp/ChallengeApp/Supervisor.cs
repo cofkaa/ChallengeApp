@@ -3,7 +3,7 @@ using ChallengeApp.Interfaces;
 
 namespace ChallengeApp
 {
-    internal class Supervisor : IEmployee
+    public class Supervisor : IEmployee
     {
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Surname { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
