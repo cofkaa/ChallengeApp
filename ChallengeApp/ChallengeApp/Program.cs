@@ -6,6 +6,12 @@ Console.WriteLine();
 
 var employee = new EmployeeInMemory("Aga", "Nowak", 33, 'K');
 employee.SayHello();
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę.");
+}
 
 var input = "";
 var input2 = "";
