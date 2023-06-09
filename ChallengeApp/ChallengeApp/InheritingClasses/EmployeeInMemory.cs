@@ -15,6 +15,8 @@ namespace ChallengeApp.InheritingClasses
             del = WriteMessageInConsole;
             del += WriteMessageInConsoleUpper;
             del("Mój tekst");
+            del -= WriteMessageInConsole;
+            del("Mój tekst2");
         }
         private void WriteMessageInConsole(string message)
         {
