@@ -4,7 +4,7 @@ namespace ChallengeApp.InheritingClasses
 {
     public class EmployeeInMemory : EmployeeBase
     {
-        public delegate string WriteMessage(string message);
+        public delegate void WriteMessage(string message);
         public EmployeeInMemory() : base() { }
         public EmployeeInMemory(string name, string surname) : base(name, surname) { }
         public EmployeeInMemory(string name, string surname, char gender) : base(name, surname, gender) { }
@@ -12,13 +12,13 @@ namespace ChallengeApp.InheritingClasses
         public EmployeeInMemory(string name, string surname, int age, char gender) : base(name, surname, age, gender)
         {
             WriteMessage del;
-            del = ReturnMessage;
+            del = WriteMessageInConsole;
             del("Mój tekst");
-            ReturnMessage("Mój tekst");
+            WriteMessageInConsole("Mój tekst2");
         }
-        private string ReturnMessage(string message)
+        private void WriteMessageInConsole(string message)
         {
-            return message;
+            Console.WriteLine(message);
         }
         public override void SayHello()
         {
