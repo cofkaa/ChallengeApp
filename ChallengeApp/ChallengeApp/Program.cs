@@ -32,6 +32,8 @@ do
     input2 = Console.ReadLine();
 } while (input2 == "t" || input2 == "t");
 
+employee.GradeAdded -= EmployeeGradeAdded;
+
 var statistics = employee.GetStatistics();
 Console.WriteLine("****************************");
 Console.WriteLine($"{employee.Name} {employee.Surname} ({employee.Age})");
