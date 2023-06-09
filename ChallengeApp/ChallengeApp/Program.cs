@@ -25,6 +25,8 @@ do
 
     Console.WriteLine("Czy chcesz podać kolejną ocenę (t/n)?");
     input2 = Console.ReadLine();
+    if (input2 == null)
+        break;
 } while (input2.ToLower() == "t");
 
 employee.GradeAdded -= EmployeeGradeAdded;
