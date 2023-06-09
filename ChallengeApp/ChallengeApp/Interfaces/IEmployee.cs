@@ -1,9 +1,11 @@
 ﻿using ChallengeApp.DataModels;
+using static ChallengeApp.BaseClasses.EmployeeBase;
 
 namespace ChallengeApp.Interfaces
 {
     public interface IEmployee
     {
+        event GradeAddedDelegate GradeAdded;
         string Name { get; }
         string Surname { get; }
         int Age { get; }
@@ -15,7 +17,6 @@ namespace ChallengeApp.Interfaces
         void AddGrade(long grade);
         void AddGrade(float grade);
         void AddGrade(string grade);
-
         Statistics GetStatistics();
     }
 }
