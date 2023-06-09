@@ -5,52 +5,47 @@
         public float Min { get; private set; }
         public float Max { get; private set; }
         public float Sum { get; private set; }
-        public float Average { get; private set; }
-        public char AverageLetter { get; private set; }
+        public float Average => Count != 0 ? Sum / Count : 0;
+        public char AverageLetter => Average switch
+        {
+            > 80 => 'A',
+            > 60 => 'B',
+            > 40 => 'C',
+            > 20 => 'D',
+            _ => 'E',
+        };
         public int Count { get; private set; }
 
         public Statistics()
         {
+            Min = 0;
+            Max = 0;
             Sum = 0;
             Count = 0;
-            Average = 0;
+        }
+
+        public void AddGrade(float grade)
+        {
+            Count++;
+            if (Count == 1)
+            {
+                Min = grade;
+                Max = grade;
+            }
+            else
+            {
+                Min = Math.Min(Min, grade);
+                Max = Math.Max(Max, grade);
+            }
+            Sum += grade;
         }
 
         public static Statistics GetStatistics(List<float> grades)
         {
             var statistics = new Statistics();
-            statistics.Count = grades.Count;
-
-            if (statistics.Count > 0)
+            foreach (var grade in grades)
             {
-                statistics.Max = float.MinValue;
-                statistics.Min = float.MaxValue;
-
-                foreach (var grade in grades)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Sum += grade;
-                }
-                statistics.Average = statistics.Sum / statistics.Count;
-            }
-            switch (statistics.Average)
-            {
-                case > 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case > 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case > 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case > 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
+                statistics.AddGrade(grade);
             }
             return statistics;
         }
