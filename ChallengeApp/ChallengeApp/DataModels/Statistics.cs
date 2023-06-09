@@ -2,16 +2,26 @@
 {
     public class Statistics
     {
-        public float Min { get; set; }
-        public float Max { get; set; }
-        public float Average { get; set; }
-        public char AverageLetter { get; set; }
+        public float Min { get; private set; }
+        public float Max { get; private set; }
+        public float Sum { get; private set; }
+        public float Average { get; private set; }
+        public char AverageLetter { get; private set; }
+        public int Count { get; private set; }
+
+        public Statistics()
+        {
+            Sum = 0;
+            Count = 0;
+            Average = 0;
+        }
 
         public static Statistics GetStatistics(List<float> grades)
         {
             var statistics = new Statistics();
+            statistics.Count = grades.Count;
 
-            if (grades.Count > 0)
+            if (statistics.Count > 0)
             {
                 statistics.Max = float.MinValue;
                 statistics.Min = float.MaxValue;
@@ -20,9 +30,9 @@
                 {
                     statistics.Max = Math.Max(statistics.Max, grade);
                     statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
+                    statistics.Sum += grade;
                 }
-                statistics.Average /= grades.Count;
+                statistics.Average = statistics.Sum / statistics.Count;
             }
             switch (statistics.Average)
             {
