@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w Programie ABC do oceny pracowników");
 Console.WriteLine("============================================");
 Console.WriteLine();
 
-var employee = new EmployeeInFile("Aga", "Nowak");
+var employee = new EmployeeInMemory("Aga", "Nowak", 33, 'K');
 employee.SayHello();
 
 var input = "";

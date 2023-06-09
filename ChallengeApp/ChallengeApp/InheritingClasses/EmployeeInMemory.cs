@@ -13,12 +13,16 @@ namespace ChallengeApp.InheritingClasses
         {
             WriteMessage del;
             del = WriteMessageInConsole;
+            del += WriteMessageInConsoleUpper;
             del("Mój tekst");
-            WriteMessageInConsole("Mój tekst2");
         }
         private void WriteMessageInConsole(string message)
         {
             Console.WriteLine(message);
+        }
+        private void WriteMessageInConsoleUpper(string message)
+        {
+            Console.WriteLine(message.ToUpper());
         }
         public override void SayHello()
         {
