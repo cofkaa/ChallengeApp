@@ -3,13 +3,13 @@ using ChallengeApp.InheritingClasses;
 namespace ChallengeApp.Tests
 
 {
-    public class EmployeeTests
+    public class EmployeeInMemoryTests
     {
         [Test]
         public void WhenEmployeeCollectGrades_ShouldReturnCorrectMin()
         {
             // arrange
-            var employee = new Employee("Adam", "Nowak", 33);
+            var employee = new EmployeeInMemory("Adam", "Nowak", 33);
             employee.AddGrade(3);
             employee.AddGrade(6);
 
@@ -24,7 +24,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeCollectGrades_ShouldReturnCorrectMax()
         {
             // arrange
-            var employee = new Employee("Adam", "Nowak", 33);
+            var employee = new EmployeeInMemory("Adam", "Nowak", 33);
             employee.AddGrade(3);
             employee.AddGrade(6);
 
@@ -39,7 +39,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeHasNoGrades_ShouldReturnZeroAverage()
         {
             // arrange
-            var employee = new Employee("Adam", "Nowak", 33);
+            var employee = new EmployeeInMemory("Adam", "Nowak", 33);
 
             // act
             var statistics = employee.GetStatistics();
@@ -52,7 +52,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeCollectCharGrades_ShouldReturnAverage()
         {
             // arrange
-            var employee = new Employee("Adam", "Nowak", 33);
+            var employee = new EmployeeInMemory("Adam", "Nowak", 33);
             employee.AddGrade('A');
             employee.AddGrade('c');
 
@@ -67,7 +67,7 @@ namespace ChallengeApp.Tests
         public void WhenEmployeeCollectGrades_ShouldReturnAverageLetter()
         {
             // arrange
-            var employee = new Employee("Adam", "Nowak", 33);
+            var employee = new EmployeeInMemory("Adam", "Nowak", 33);
             employee.AddGrade(100);
             employee.AddGrade('c');
 

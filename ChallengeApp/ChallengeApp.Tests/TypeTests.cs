@@ -25,7 +25,7 @@ namespace ChallengeApp.Tests
             float number2 = 105E-1f;
 
             // act
-            
+
             // assert
             Assert.AreEqual(number1, number2);
         }
@@ -38,7 +38,7 @@ namespace ChallengeApp.Tests
             string text2 = "Miasto";
 
             // act
-            
+
             // assert
             Assert.AreNotEqual(text1, text2);
         }
@@ -49,16 +49,16 @@ namespace ChallengeApp.Tests
             // arrange
             var employee1 = GetEmployee("Adam");
             var employee2 = GetEmployee("Adam");
-             
+
             // act
 
             // assert
             Assert.AreNotEqual(employee1, employee2);
         }
 
-        private Employee GetEmployee(string name)
+        private EmployeeInMemory GetEmployee(string name)
         {
-            return new Employee(name, "", 0);
+            return new EmployeeInMemory(name, "", 0);
         }
     }
 }
