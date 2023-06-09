@@ -4,9 +4,6 @@ namespace ChallengeApp.InheritingClasses
 {
     public class EmployeeInMemory : EmployeeBase
     {
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
-
-        public event GradeAddedDelegate GradeAdded;
         public EmployeeInMemory() : base() { }
         public EmployeeInMemory(string name, string surname) : base(name, surname) { }
         public EmployeeInMemory(string name, string surname, char gender) : base(name, surname, gender) { }
@@ -18,14 +15,9 @@ namespace ChallengeApp.InheritingClasses
             Console.WriteLine("HI!!!");
             base.SayHello();
         }
-        public override void AddGrade(float grade)
+        protected override void AddGradeMainLogic(float grade)
         {
-            base.AddGrade(grade);
             grades.Add(grade);
-            if (GradeAdded != null)
-            {
-                GradeAdded(this, new EventArgs());
-            }
         }
     }
 }

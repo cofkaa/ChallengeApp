@@ -4,14 +4,9 @@ Console.WriteLine("Witamy w Programie ABC do oceny pracowników");
 Console.WriteLine("============================================");
 Console.WriteLine();
 
-var employee = new EmployeeInMemory("Aga", "Nowak", 33, 'K');
+var employee = new EmployeeInFile("Aga", "Nowak", 33, 'K');
 employee.SayHello();
 employee.GradeAdded += EmployeeGradeAdded;
-
-void EmployeeGradeAdded(object sender, EventArgs args)
-{
-    Console.WriteLine("Dodano nową ocenę.");
-}
 
 var input = "";
 var input2 = "";
@@ -28,9 +23,9 @@ do
         Console.WriteLine($"**błąd: {e.Message}");
     }
 
-    Console.WriteLine($"wprowadzono ocenę: {input}. czy chcesz podać kolejną ocenę (t/n)?");
+    Console.WriteLine("Czy chcesz podać kolejną ocenę (t/n)?");
     input2 = Console.ReadLine();
-} while (input2 == "t" || input2 == "t");
+} while (input2.ToLower() == "t");
 
 employee.GradeAdded -= EmployeeGradeAdded;
 
@@ -42,3 +37,8 @@ Console.WriteLine($"averageletter: {statistics.AverageLetter}");
 Console.WriteLine($"min: {statistics.Min}");
 Console.WriteLine($"max: {statistics.Max}");
 Console.WriteLine("****************************");
+
+void EmployeeGradeAdded(object sender, EventArgs args, float grade)
+{
+    Console.WriteLine($"Dodano nową ocenę {grade}.");
+}

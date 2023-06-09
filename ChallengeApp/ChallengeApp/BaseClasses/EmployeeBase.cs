@@ -5,6 +5,9 @@ namespace ChallengeApp.BaseClasses
 {
     public abstract class EmployeeBase : IEmployee
     {
+        public delegate void GradeAddedDelegate(object sender, EventArgs args, float grade);
+
+        public event GradeAddedDelegate GradeAdded;
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public int Age { get; private set; }
@@ -60,11 +63,19 @@ namespace ChallengeApp.BaseClasses
         {
             AddGrade((float)grade);
         }
-        public virtual void AddGrade(float grade)
+        public void AddGrade(float grade)
         {
             if (grade < 0 || grade > 100)
                 throw new Exception("Invalid grade value");
+
+            AddGradeMainLogic(grade);
+
+            if (GradeAdded != null)
+                GradeAdded(this, new EventArgs(), grade);
         }
+
+        protected abstract void AddGradeMainLogic(float grade);
+
         public virtual Statistics GetStatistics()
         {
             var statistics = new Statistics();

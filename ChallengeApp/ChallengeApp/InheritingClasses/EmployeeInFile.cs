@@ -12,9 +12,8 @@ namespace ChallengeApp.InheritingClasses
         public EmployeeInFile(string name, string surname, int age) : base(name, surname, age) { }
         public EmployeeInFile(string name, string surname, int age, char gender) : base(name, surname, age, gender) { }
 
-        public override void AddGrade(float grade)
+        protected override void AddGradeMainLogic(float grade)
         {
-            base.AddGrade(grade);
             using (var writer = File.AppendText(fileName))
             {
                 writer.WriteLine(grade);
